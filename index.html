@@ -25,7 +25,6 @@
 }
 html,body{height:100%;overflow:hidden}
 body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column}
-
 .header{background:var(--teal-dark);padding:calc(12px + var(--safe-top)) 20px 14px;flex-shrink:0;position:relative;overflow:hidden}
 .header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(93,202,165,0.3) 0%,transparent 60%);pointer-events:none}
 .header-inner{max-width:480px;margin:0 auto;position:relative}
@@ -35,21 +34,16 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .loc-btn{border:none;background:none;color:rgba(255,255,255,0.7);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:5px 12px;border-radius:16px;cursor:pointer;transition:all 0.2s}
 .loc-btn.active{background:white;color:var(--teal-dark)}
 .header-sub{font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px}
-
 .main{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .content{max-width:480px;margin:0 auto;padding:16px 16px 100px}
-
 .nav{background:var(--card);border-top:1px solid var(--border);padding:8px 0 calc(8px + var(--safe-bottom));flex-shrink:0}
 .nav-inner{max-width:480px;margin:0 auto;display:flex}
 .nav-btn{flex:1;border:none;background:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:var(--text3);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;transition:color 0.15s;letter-spacing:0.04em;text-transform:uppercase}
 .nav-btn.active{color:var(--teal-dark)}
 .nav-btn.active svg{stroke:var(--teal-dark) !important}
 .nav-btn svg{stroke:var(--text3);transition:stroke 0.15s}
-
 .page{display:none}.page.active{display:block}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin:20px 0 8px}
-
-/* TODAY CARD */
 .today-card{background:var(--card);border-radius:16px;border:1px solid var(--border);overflow:hidden;margin-bottom:12px}
 .today-card-top{padding:16px;display:flex;justify-content:space-between;align-items:flex-start}
 .today-type{font-family:'Lora',serif;font-size:20px;font-weight:600;color:var(--text);line-height:1.2}
@@ -60,8 +54,6 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .today-loc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3);font-weight:600}
 .loc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .edit-btn{font-size:12px;color:var(--teal);font-weight:700;border:none;background:none;cursor:pointer;padding:0}
-
-/* FOOT CARE */
 .foot-section{background:var(--teal-light);border:1px solid rgba(29,158,117,0.2);border-radius:16px;padding:16px;margin-bottom:12px}
 .foot-heading{font-size:13px;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .foot-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(29,158,117,0.12)}
@@ -71,15 +63,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .chk.done::after{content:'';display:block;width:5px;height:10px;border:2.5px solid white;border-top:none;border-left:none;transform:rotate(45deg) translateY(-1px)}
 .foot-text{font-size:14px;color:var(--teal-dark);flex:1;line-height:1.4}
 .foot-reps{font-size:12px;color:var(--teal);font-weight:700;flex-shrink:0}
-
 .tip{background:var(--amber-light);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:12px}
 .tip-label{font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px}
 .tip-text{font-size:13px;color:var(--text);line-height:1.6}
-
 .btn-primary{width:100%;padding:15px;border:none;border-radius:12px;background:var(--teal);color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background 0.15s,transform 0.1s;margin-bottom:8px}
 .btn-primary:active{background:var(--teal-dark);transform:scale(0.98)}
-
-/* PLAN CARDS */
 .plan-card{background:var(--card);border-radius:14px;border:1px solid var(--border);margin-bottom:8px;overflow:hidden;display:flex}
 .plan-accent{width:5px;flex-shrink:0}
 .plan-body{padding:12px 14px;flex:1;min-width:0}
@@ -92,8 +80,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .plan-loc{font-size:11px;color:var(--text3);font-weight:600;display:flex;align-items:center;gap:4px}
 .plan-edit{border:none;background:none;color:var(--teal);font-size:12px;font-weight:700;cursor:pointer;padding:0}
 .today-marker{font-size:10px;font-weight:700;color:white;background:var(--coral);padding:2px 7px;border-radius:10px}
-
-/* LOG PAGE */
+.week-section-label{font-size:12px;font-weight:700;color:var(--teal-dark);background:var(--teal-light);border-radius:8px;padding:6px 12px;margin:16px 0 8px;display:inline-block}
 .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .stat-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
 .stat-lbl{font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
@@ -112,8 +99,6 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .empty{text-align:center;padding:40px 20px;color:var(--text3)}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty-text{font-size:14px;line-height:1.6}
-
-/* MODALS */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500;display:none;align-items:flex-end;justify-content:center}
 .overlay.open{display:flex}
 .modal{background:var(--card);border-radius:22px 22px 0 0;padding:20px 20px calc(24px + var(--safe-bottom));width:100%;max-width:480px;max-height:90vh;overflow-y:auto}
@@ -128,10 +113,12 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .modal-btns{display:flex;gap:10px;margin-top:20px}
 .btn-cancel{flex:1;padding:14px;border:1.5px solid var(--gray-mid);border-radius:10px;background:none;font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;cursor:pointer;color:var(--text2)}
 .btn-save{flex:2;padding:14px;border:none;border-radius:10px;background:var(--teal);color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer}
-
 .milestone{background:linear-gradient(135deg,var(--teal-dark),var(--teal));border-radius:16px;padding:16px;margin-bottom:12px;color:white}
 .milestone-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;opacity:0.75;margin-bottom:4px}
 .milestone-text{font-size:14px;line-height:1.5;opacity:0.95}
+.cardio-summary{background:var(--coral-light);border:1px solid rgba(216,90,48,0.2);border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.cardio-label{font-size:10px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px}
+.cardio-text{font-size:13px;color:var(--text);line-height:1.6}
 </style>
 </head>
 <body>
@@ -156,16 +143,14 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
     <div class="content">
       <div class="sec-label">Today's workout</div>
       <div id="today-card-wrap"></div>
-
       <div class="sec-label">Daily foot care</div>
       <div class="foot-section">
-        <div class="foot-heading">&#128344; Post-workout protocol</div>
+        <div class="foot-heading">&#9201; Post-workout protocol</div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Calf stretches — standing wall stretch</div><div class="foot-reps">3 × 30s</div></div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Eccentric calf raises — step edge, slow lower</div><div class="foot-reps">3 × 15</div></div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Frozen bottle rolling — each foot</div><div class="foot-reps">2 min each</div></div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Towel toe curls</div><div class="foot-reps">2 × 20</div></div>
       </div>
-
       <div class="tip" id="loc-tip"></div>
       <button class="btn-primary" onclick="openLogModal()">Log today's workout</button>
     </div>
@@ -174,8 +159,20 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
   <!-- PLAN -->
   <div class="page" id="page-plan">
     <div class="content">
-      <div class="sec-label">Weekly plan</div>
-      <div id="plan-list"></div>
+      <div class="sec-label">This week — Apr 1–6</div>
+      <div class="cardio-summary">
+        <div class="cardio-label">Week cardio tracker</div>
+        <div class="cardio-text">Mon &#10003; strength · Tue &#10003; vigorous 30 min · Wed &#10003; mat Pilates<br>Thu vigorous 30 min · Sat vigorous 20–25 min = <strong>~80–90 min vigorous</strong> &#10003;</div>
+      </div>
+      <div id="this-week-list"></div>
+
+      <div class="sec-label" style="margin-top:24px">Chicago weekly template</div>
+      <div class="tip" style="margin-bottom:10px">
+        <div class="tip-label">Chicago setup</div>
+        <div class="tip-text">Peloton (standard) · Reformer Pilates studio · weights coming soon. Apple Watch HR via Peloton app — not GymKit.</div>
+      </div>
+      <div id="chicago-week-list"></div>
+
       <div class="milestone">
         <div class="milestone-label">Return to running milestone</div>
         <div class="milestone-text">No morning pain + no post-sitting pain + 4+ symptom-free weeks → run/walk intervals begin</div>
@@ -195,7 +192,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
           <div class="progress-track"><div class="progress-fill" id="prog-count" style="background:var(--teal);width:0%"></div></div>
         </div>
         <div class="stat-box">
-          <div class="stat-lbl">Cardio</div>
+          <div class="stat-lbl">Vigorous cardio</div>
           <div class="stat-num" id="stat-cardio">0</div>
           <div class="stat-sub">of 75 min goal</div>
           <div class="progress-track"><div class="progress-fill" id="prog-cardio" style="background:var(--coral);width:0%"></div></div>
@@ -234,16 +231,15 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
     <div class="modal-sub" id="log-modal-sub"></div>
     <div class="field"><label>Type</label>
       <select id="f-type">
-        <option value="peloton-hard">Peloton — hard ride (Zone 4/5)</option>
-        <option value="peloton-easy">Peloton — Zone 2 ride</option>
-        <option value="strength-legs">Dumbbell strength — legs</option>
-        <option value="strength-arms">Dumbbell strength — arms/upper</option>
+        <option value="peloton-hard">Peloton — vigorous (Zone 4/5)</option>
+        <option value="peloton-easy">Peloton — moderate (Zone 2)</option>
+        <option value="strength">Strength training</option>
         <option value="reformer">Reformer Pilates</option>
         <option value="mat">Mat Pilates + core</option>
         <option value="rest">Rest day / dog walk</option>
       </select>
     </div>
-    <div class="field"><label>Duration (minutes)</label><input type="number" id="f-dur" placeholder="45" min="0" max="180"></div>
+    <div class="field"><label>Duration (minutes)</label><input type="number" id="f-dur" placeholder="30" min="0" max="180"></div>
     <div class="field"><label>Location</label>
       <select id="f-loc"><option>Wisconsin</option><option>Chicago</option></select>
     </div>
@@ -255,24 +251,15 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
   </div>
 </div>
 
-<!-- EDIT WORKOUT MODAL -->
+<!-- EDIT MODAL -->
 <div class="overlay" id="ov-edit" onclick="if(event.target===this)closeEditModal()">
   <div class="modal">
     <div class="modal-handle"></div>
     <div class="modal-title" id="edit-title">Edit workout</div>
     <div class="modal-sub">Changes save to your plan and stay until you edit again.</div>
-    <div class="field">
-      <label>Workout name</label>
-      <input type="text" id="e-label" placeholder="e.g. Hard cardio">
-    </div>
-    <div class="field">
-      <label>Workout description</label>
-      <textarea id="e-detail" placeholder="What you'll do — exercises, duration, notes..."></textarea>
-    </div>
-    <div class="field">
-      <label>My notes for this day</label>
-      <textarea id="e-notes" placeholder="Personal notes — how it went, what to remember, foot symptoms..."></textarea>
-    </div>
+    <div class="field"><label>Workout name</label><input type="text" id="e-label"></div>
+    <div class="field"><label>Workout description</label><textarea id="e-detail"></textarea></div>
+    <div class="field"><label>My notes for this day</label><textarea id="e-notes" placeholder="Personal notes — how it went, what to remember, foot symptoms..."></textarea></div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
       <button class="btn-save" onclick="saveEdit()">Save changes</button>
@@ -283,27 +270,58 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 <script>
 const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const TYPE_COLORS={'peloton-hard':'#D85A30','peloton-easy':'#1D9E75','strength-legs':'#534AB7','strength-arms':'#534AB7','reformer':'#185FA5','mat':'#185FA5','rest':'#888780'};
+const TYPE_COLORS={'peloton-hard':'#D85A30','peloton-easy':'#1D9E75','strength':'#534AB7','reformer':'#185FA5','mat':'#185FA5','rest':'#888780'};
 
-const DEFAULT_PLAN=[
-  {day:'Monday',   type:'hard',     label:'Hard cardio',          color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30–35 min · Zone 4/5 intervals · push hard effort', notes:''},
-  {day:'Tuesday',  type:'strength', label:'Strength — legs',      color:'#534AB7',bgColor:'#EEEDFE', detail:'Squats, deadlifts, lunges, calf raises · dumbbells · 30 min', notes:''},
-  {day:'Wednesday',type:'easy',     label:'Easy cardio',          color:'#1D9E75',bgColor:'#E1F5EE', detail:'Peloton 30 min · Zone 2 · ride to heart rate, ignore instructor cues', notes:''},
-  {day:'Thursday', type:'pilates',  label:'Mat Pilates + core',   color:'#185FA5',bgColor:'#E6F1FB', detail:'40 min mat Pilates · side-lying series, bridging, clamshells, relevés, inner thigh lifts', notes:''},
-  {day:'Friday',   type:'hard',     label:'Hard cardio',          color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30–35 min · Zone 4/5 · sustained push effort', notes:''},
-  {day:'Saturday', type:'strength', label:'Strength — arms/upper',color:'#534AB7',bgColor:'#EEEDFE', detail:'Rows, presses, biceps, triceps, shoulder work · dumbbells · 30 min', notes:''},
-  {day:'Sunday',   type:'rest',     label:'Rest day',             color:'#888780',bgColor:'#F4F3F0', detail:'Dog walk only · full recovery · no structured workout', notes:''},
+// THIS WEEK — Apr 1 (Wed) through Apr 6 (Sun)
+// Mon Apr 1 = done, Tue Apr 1 = done, Wed Apr 2 = done already
+const THIS_WEEK=[
+  {day:'Monday',    date:'Apr 1',  type:'strength',    label:'Whole body strength',    color:'#534AB7',bgColor:'#EEEDFE', detail:'Whole body strength 45 min ✓ Done', notes:''},
+  {day:'Tuesday',   date:'Apr 2',  type:'peloton-hard',label:'Vigorous Peloton',       color:'#D85A30',bgColor:'#FAECE7', detail:'Vigorous Peloton 30 min ✓ Done', notes:''},
+  {day:'Wednesday', date:'Apr 2',  type:'mat',         label:'Mat Pilates + core',     color:'#185FA5',bgColor:'#E6F1FB', detail:'Mat Pilates + core ✓ Done', notes:''},
+  {day:'Thursday',  date:'Apr 3',  type:'peloton-hard',label:'Vigorous Peloton',       color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30 min · Zone 4/5 · do before traveling to Chicago if possible', notes:''},
+  {day:'Friday',    date:'Apr 4',  type:'reformer',    label:'Reformer Pilates',       color:'#185FA5',bgColor:'#E6F1FB', detail:'Reformer Pilates · first Chicago session · moderate effort, settle in', notes:''},
+  {day:'Saturday',  date:'Apr 5',  type:'peloton-hard',label:'Short vigorous Peloton', color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 20–25 min · Zone 4/5 · short but push it · completes ~80–90 min vigorous this week', notes:''},
+  {day:'Sunday',    date:'Apr 6',  type:'rest',        label:'Rest day',               color:'#888780',bgColor:'#F4F3F0', detail:'Full rest · dog walk only · recover well', notes:''},
 ];
 
-let loc='wi', editIdx=null, plan, logs;
+// CHICAGO WEEKLY TEMPLATE
+const CHICAGO_WEEK=[
+  {day:'Monday',   type:'peloton-hard',label:'Vigorous Peloton',       color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30–35 min · Zone 4/5 intervals · push hard effort', notes:''},
+  {day:'Tuesday',  type:'reformer',    label:'Reformer Pilates',       color:'#185FA5',bgColor:'#E6F1FB', detail:'Reformer Pilates · strength focus · spring resistance replaces dumbbells', notes:''},
+  {day:'Wednesday',type:'peloton-easy',label:'Moderate Peloton',       color:'#1D9E75',bgColor:'#E1F5EE', detail:'Peloton 30 min · Zone 2 · ride to heart rate, ignore instructor cues · active recovery', notes:''},
+  {day:'Thursday', type:'mat',         label:'Mat Pilates + core',     color:'#185FA5',bgColor:'#E6F1FB', detail:'40 min mat Pilates · side-lying series, bridging, clamshells, relevés, inner thigh lifts', notes:''},
+  {day:'Friday',   type:'peloton-hard',label:'Vigorous Peloton',       color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30–35 min · Zone 4/5 · sustained push effort', notes:''},
+  {day:'Saturday', type:'peloton-hard',label:'Short vigorous Peloton', color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 20–25 min · Zone 4/5 · tops up weekly vigorous cardio to ~80–90 min', notes:''},
+  {day:'Sunday',   type:'rest',        label:'Rest day',               color:'#888780',bgColor:'#F4F3F0', detail:'Full rest · dog walk only · no structured workout', notes:''},
+];
 
-try{plan=JSON.parse(localStorage.getItem('bf_plan')||'null')||JSON.parse(JSON.stringify(DEFAULT_PLAN))}catch(e){plan=JSON.parse(JSON.stringify(DEFAULT_PLAN))}
-// Make sure all plan entries have a notes field (for upgrades from older version)
-plan.forEach(p=>{if(p.notes===undefined)p.notes=''});
-try{logs=JSON.parse(localStorage.getItem('bf_logs')||'[]')}catch(e){logs=[]}
-try{loc=localStorage.getItem('bf_loc')||'wi'}catch(e){}
+// Weekly cardio math for Chicago template:
+// Vigorous: Mon 30–35 + Fri 30–35 + Sat 20–25 = 80–95 min vigorous ✓
+// Moderate: Wed 30 min bonus aerobic base work ✓
 
-function savePlan(){try{localStorage.setItem('bf_plan',JSON.stringify(plan))}catch(e){}}
+let loc='chi', editIdx=null, editList=null, logs=[];
+try{loc=localStorage.getItem('bf_loc')||'chi'}catch(e){}
+try{logs=JSON.parse(localStorage.getItem('bf_logs')||'[]')}catch(e){}
+
+// Load saved edits for this week and chicago template
+let thisWeekEdits=[], chicagoEdits=[];
+try{thisWeekEdits=JSON.parse(localStorage.getItem('bf_tw')||'null')||THIS_WEEK.map(p=>({notes:p.notes||''}))}catch(e){thisWeekEdits=THIS_WEEK.map(()=>({notes:''}))}
+try{chicagoEdits=JSON.parse(localStorage.getItem('bf_chi')||'null')||CHICAGO_WEEK.map(p=>({label:p.label,detail:p.detail,notes:p.notes||''}))}catch(e){chicagoEdits=CHICAGO_WEEK.map(p=>({label:p.label,detail:p.detail,notes:''}))}
+
+function saveEdits(){
+  try{localStorage.setItem('bf_tw',JSON.stringify(thisWeekEdits))}catch(e){}
+  try{localStorage.setItem('bf_chi',JSON.stringify(chicagoEdits))}catch(e){}
+}
+
+function getMergedThisWeek(){
+  return THIS_WEEK.map((p,i)=>Object.assign({},p,{notes:thisWeekEdits[i]?thisWeekEdits[i].notes:''}));
+}
+function getMergedChicago(){
+  return CHICAGO_WEEK.map((p,i)=>{
+    const e=chicagoEdits[i]||{};
+    return Object.assign({},p,{label:e.label||p.label,detail:e.detail||p.detail,notes:e.notes||''});
+  });
+}
 
 function setLocation(l){
   loc=l;
@@ -323,43 +341,70 @@ function renderAll(){
   document.getElementById('log-modal-sub').textContent=dateStr;
   document.getElementById('f-loc').value=loc==='wi'?'Wisconsin':'Chicago';
 
-  // Today card
-  const today=plan.find(p=>DAYS.indexOf(p.day)===dow)||plan[6];
-  const todayIdx=plan.indexOf(today);
+  // Today — find in this week first, fall back to chicago template
+  const tw=getMergedThisWeek();
+  const chi=getMergedChicago();
+  let todayEntry=tw.find(p=>DAYS.indexOf(p.day)===dow);
+  let todayList='tw', todayIdx=tw.indexOf(todayEntry);
+  if(!todayEntry){
+    todayEntry=chi.find(p=>DAYS.indexOf(p.day)===dow)||chi[6];
+    todayList='chi'; todayIdx=chi.indexOf(todayEntry);
+  }
+
   document.getElementById('today-card-wrap').innerHTML=`
     <div class="today-card">
       <div class="today-card-top">
-        <div class="today-type">${today.label}</div>
-        <div class="today-badge" style="background:${today.bgColor};color:${today.color}">${today.type}</div>
+        <div class="today-type">${todayEntry.label}</div>
+        <div class="today-badge" style="background:${todayEntry.bgColor};color:${todayEntry.color}">${todayEntry.type.replace('-',' ')}</div>
       </div>
-      <div class="today-detail">${today.detail}</div>
-      ${today.notes?`<div class="today-notes">&#128203; ${today.notes}</div>`:''}
+      <div class="today-detail">${todayEntry.detail}</div>
+      ${todayEntry.notes?`<div class="today-notes">&#128203; ${todayEntry.notes}</div>`:''}
       <div class="today-footer">
         <div class="today-loc"><div class="loc-dot" style="background:${locColor}"></div>${locLabel}</div>
-        <button class="edit-btn" onclick="openEditModal(${todayIdx})">Edit &#9999;&#65039;</button>
+        <button class="edit-btn" onclick="openEditModal('${todayList}',${todayIdx})">Edit &#9999;&#65039;</button>
       </div>
     </div>`;
 
-  // Tip
+  // Location tip
   document.getElementById('loc-tip').innerHTML=loc==='wi'
-    ?`<div class="tip-label">Zone 2 reminder</div><div class="tip-text">For Zone 2 rides, ignore instructor cues and ride to your heart rate. Enable Peloton under iPhone Health → Heart Rate sources for Apple Watch sync. Best instructors: Matt Wilpers, Christine D'Ercole.</div>`
-    :`<div class="tip-label">Chicago mode</div><div class="tip-text">Reformer Pilates substitutes for dumbbell strength days — spring resistance counts. Add short mat core work on non-reformer days.</div>`;
+    ?`<div class="tip-label">Zone 2 reminder</div><div class="tip-text">For Zone 2 rides, ignore instructor cues and ride to heart rate. Enable Peloton under iPhone Health → Heart Rate sources. Best instructors: Matt Wilpers, Christine D'Ercole.</div>`
+    :`<div class="tip-label">Chicago · Peloton standard</div><div class="tip-text">Apple Watch HR via the Peloton app (not GymKit — that's Bike+ only). For Zone 2, ride to heart rate and ignore instructor cues.</div>`;
 
-  // Plan list
-  document.getElementById('plan-list').innerHTML=plan.map((p,i)=>{
+  // This week list
+  document.getElementById('this-week-list').innerHTML=tw.map((p,i)=>{
     const isToday=DAYS.indexOf(p.day)===dow;
-    return `<div class="plan-card" style="${isToday?'border:1.5px solid '+p.color:''}">
+    const done=p.detail.includes('✓');
+    return `<div class="plan-card" style="${isToday?'border:1.5px solid '+p.color:''}${done?';opacity:0.65':''}">
       <div class="plan-accent" style="background:${p.color}"></div>
       <div class="plan-body">
         <div class="plan-row">
-          <div class="plan-day">${p.day}${isToday?'<span class="today-marker">today</span>':''}</div>
+          <div class="plan-day">${p.day}${isToday?'<span class="today-marker">today</span>':''}${done?' &#10003;':''}</div>
           <div class="plan-badge" style="background:${p.bgColor};color:${p.color}">${p.label}</div>
         </div>
         <div class="plan-detail">${p.detail}</div>
         ${p.notes?`<div class="plan-sticky">&#128203; ${p.notes}</div>`:''}
         <div class="plan-footer">
-          <div class="plan-loc"><div class="loc-dot" style="background:${locColor};width:6px;height:6px;border-radius:50%;flex-shrink:0"></div>${locLabel}</div>
-          <button class="plan-edit" onclick="openEditModal(${i})">Edit &#9999;&#65039;</button>
+          <div class="plan-loc"><div class="loc-dot" style="background:${locColor};width:6px;height:6px;border-radius:50%;flex-shrink:0"></div>${p.date||''}</div>
+          <button class="plan-edit" onclick="openEditModal('tw',${i})">Edit &#9999;&#65039;</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Chicago template list
+  document.getElementById('chicago-week-list').innerHTML=chi.map((p,i)=>{
+    return `<div class="plan-card">
+      <div class="plan-accent" style="background:${p.color}"></div>
+      <div class="plan-body">
+        <div class="plan-row">
+          <div class="plan-day">${p.day}</div>
+          <div class="plan-badge" style="background:${p.bgColor};color:${p.color}">${p.label}</div>
+        </div>
+        <div class="plan-detail">${p.detail}</div>
+        ${p.notes?`<div class="plan-sticky">&#128203; ${p.notes}</div>`:''}
+        <div class="plan-footer">
+          <div class="plan-loc"><div class="loc-dot" style="background:#185FA5;width:6px;height:6px;border-radius:50%;flex-shrink:0"></div>Chicago</div>
+          <button class="plan-edit" onclick="openEditModal('chi',${i})">Edit &#9999;&#65039;</button>
         </div>
       </div>
     </div>`;
@@ -396,25 +441,29 @@ function saveLog(){
   closeLogModal(); updateLog();
 }
 
-function openEditModal(i){
-  editIdx=i;
-  const p=plan[i];
+function openEditModal(list, i){
+  editIdx=i; editList=list;
+  let p;
+  if(list==='tw') p=Object.assign({},THIS_WEEK[i],{notes:thisWeekEdits[i]?thisWeekEdits[i].notes:''});
+  else p=Object.assign({},CHICAGO_WEEK[i],chicagoEdits[i]||{});
   document.getElementById('edit-title').textContent='Edit — '+p.day;
-  document.getElementById('e-label').value=p.label;
-  document.getElementById('e-detail').value=p.detail;
+  document.getElementById('e-label').value=p.label||'';
+  document.getElementById('e-detail').value=p.detail||'';
   document.getElementById('e-notes').value=p.notes||'';
   document.getElementById('ov-edit').classList.add('open');
 }
-function closeEditModal(){document.getElementById('ov-edit').classList.remove('open'); editIdx=null}
+function closeEditModal(){document.getElementById('ov-edit').classList.remove('open'); editIdx=null; editList=null}
 function saveEdit(){
   if(editIdx===null)return;
   const lbl=document.getElementById('e-label').value.trim();
   const det=document.getElementById('e-detail').value.trim();
   const nts=document.getElementById('e-notes').value.trim();
-  if(lbl)plan[editIdx].label=lbl;
-  if(det)plan[editIdx].detail=det;
-  plan[editIdx].notes=nts;
-  savePlan(); closeEditModal(); renderAll();
+  if(editList==='tw'){
+    thisWeekEdits[editIdx]={notes:nts};
+  } else {
+    chicagoEdits[editIdx]={label:lbl||CHICAGO_WEEK[editIdx].label, detail:det||CHICAGO_WEEK[editIdx].detail, notes:nts};
+  }
+  saveEdits(); closeEditModal(); renderAll();
 }
 
 function updateLog(){
@@ -422,7 +471,7 @@ function updateLog(){
   const ws=new Date(now); ws.setDate(now.getDate()-now.getDay()); ws.setHours(0,0,0,0);
   const tw=logs.filter(l=>new Date(l.ts)>=ws);
   const wk=tw.filter(l=>l.type!=='rest').length;
-  const cd=tw.filter(l=>l.type.startsWith('peloton')).reduce((s,l)=>s+l.dur,0);
+  const cd=tw.filter(l=>l.type==='peloton-hard').reduce((s,l)=>s+l.dur,0);
   document.getElementById('stat-count').textContent=wk;
   document.getElementById('stat-cardio').textContent=cd;
   document.getElementById('prog-count').style.width=Math.min(100,Math.round(wk/6*100))+'%';
