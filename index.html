@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Beth's Fitness">
+<meta name="theme-color" content="#0F6E56">
+<title>Beth's Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --teal:#1D9E75;--teal-light:#E1F5EE;--teal-mid:#5DCAA5;--teal-dark:#0F6E56;
+  --coral:#D85A30;--coral-light:#FAECE7;
+  --amber:#BA7517;--amber-light:#FEF3DC;
+  --blue:#185FA5;--blue-light:#E6F1FB;
+  --purple:#534AB7;--purple-light:#EEEDFE;
+  --gray:#888780;--gray-light:#F4F3F0;--gray-mid:#D3D1C7;
+  --text:#2C2C2A;--text2:#5F5E5A;--text3:#888780;
+  --bg:#F8F7F4;--card:#FFFFFF;--border:rgba(0,0,0,0.09);
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;flex-direction:column;
+}
+
+/* HEADER */
+.header{
+  background:var(--teal-dark);
+  padding:calc(12px + var(--safe-top)) 20px 14px;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.header::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 50%, rgba(93,202,165,0.3) 0%, transparent 60%);
+  pointer-events:none;
+}
+.header-inner{max-width:480px;margin:0 auto;position:relative}
+.app-name{font-family:'Lora',serif;font-size:20px;color:white;font-weight:600}
+.header-row{display:flex;justify-content:space-between;align-items:baseline}
+.today-label{font-size:12px;color:rgba(255,255,255,0.65);margin-top:2px}
+
+/* MAIN SCROLL AREA */
+.main{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.content{max-width:480px;margin:0 auto;padding:16px 16px 100px}
+
+/* NAV */
+.nav{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  padding:8px 0 calc(8px + var(--safe-bottom));
+  flex-shrink:0;
+}
+.nav-inner{max-width:480px;margin:0 auto;display:flex}
+.nav-btn{
+  flex:1;border:none;background:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;
+  color:var(--text3);display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:6px 4px;transition:color 0.15s;letter-spacing:0.04em;text-transform:uppercase;
+}
+.nav-btn.active{color:var(--teal-dark)}
+.nav-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+.nav-btn.active .nav-icon svg{stroke:var(--teal-dark)}
+.nav-btn .nav-icon svg{stroke:var(--text3);transition:stroke 0.15s}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+
+/* SECTION LABELS */
+.sec-label{
+  font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--text3);margin:20px 0 8px;
+}
+
+/* TODAY WORKOUT CARD */
+.today-card{
+  background:var(--card);border-radius:16px;
+  border:1px solid var(--border);
+  overflow:hidden;margin-bottom:12px;
+}
+.today-card-top{
+  padding:16px;display:flex;justify-content:space-between;align-items:flex-start;
+}
+.today-type{font-family:'Lora',serif;font-size:20px;font-weight:600;color:var(--text);line-height:1.2}
+.today-badge{
+  font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;
+  flex-shrink:0;margin-left:10px;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em;
+}
+.today-detail{font-size:14px;color:var(--text2);line-height:1.6;padding:0 16px 12px}
+.today-footer{
+  background:var(--gray-light);padding:10px 16px;
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--text3);font-weight:600;
+}
+.loc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* FOOT CARE */
+.foot-section{
+  background:var(--teal-light);border:1px solid rgba(29,158,117,0.2);
+  border-radius:16px;padding:16px;margin-bottom:12px;
+}
+.foot-heading{
+  font-size:13px;font-weight:700;color:var(--teal-dark);
+  text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.foot-row{
+  display:flex;align-items:center;gap:12px;
+  padding:9px 0;border-bottom:1px solid rgba(29,158,117,0.12);
+}
+.foot-row:last-child{border-bottom:none;padding-bottom:0}
+.chk{
+  width:24px;height:24px;border-radius:7px;
+  border:2px solid var(--teal-mid);background:white;
+  cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.chk.done{background:var(--teal);border-color:var(--teal)}
+.chk.done::after{
+  content:'';display:block;width:5px;height:10px;
+  border:2.5px solid white;border-top:none;border-left:none;
+  transform:rotate(45deg) translateY(-1px);
+}
+.foot-text{font-size:14px;color:var(--teal-dark);flex:1;line-height:1.4}
+.foot-reps{font-size:12px;color:var(--teal);font-weight:700;flex-shrink:0}
+
+/* TIP */
+.tip{
+  background:var(--amber-light);border-left:3px solid var(--amber);
+  border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:12px;
+}
+.tip-label{font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px}
+.tip-text{font-size:13px;color:var(--text);line-height:1.6}
+
+/* BUTTONS */
+.btn-primary{
+  width:100%;padding:15px;border:none;border-radius:12px;
+  background:var(--teal);color:white;
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;transition:background 0.15s,transform 0.1s;margin-bottom:8px;
+}
+.btn-primary:active{background:var(--teal-dark);transform:scale(0.98)}
+.btn-outline{
+  width:100%;padding:14px;border:2px solid var(--teal);border-radius:12px;
+  background:transparent;color:var(--teal);
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all 0.15s;
+}
+.btn-outline:active{background:var(--teal-light)}
+
+/* PLAN PAGE */
+.plan-card{
+  background:var(--card);border-radius:14px;border:1px solid var(--border);
+  margin-bottom:8px;overflow:hidden;display:flex;
+}
+.plan-accent{width:5px;flex-shrink:0}
+.plan-body{padding:12px 14px;flex:1}
+.plan-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.plan-day{font-size:14px;font-weight:700;color:var(--text)}
+.plan-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.05em}
+.plan-detail{font-size:13px;color:var(--text2);line-height:1.5}
+.plan-loc{font-size:11px;color:var(--text3);margin-top:5px;font-weight:600;display:flex;align-items:center;gap:4px}
+.today-marker{
+  font-size:10px;font-weight:700;color:white;background:var(--coral);
+  padding:2px 7px;border-radius:10px;margin-left:8px;
+}
+
+/* LOG PAGE */
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.stat-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;padding:14px;
+}
+.stat-lbl{font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.stat-num{font-family:'Lora',serif;font-size:26px;font-weight:600;color:var(--text);line-height:1}
+.stat-sub{font-size:12px;color:var(--text3);margin-top:2px}
+.progress-track{height:5px;background:var(--gray-light);border-radius:3px;margin-top:8px;overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;transition:width 0.5s ease}
+
+.log-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:12px}
+.log-entry{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.log-entry:last-child{border-bottom:none}
+.log-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.log-info{flex:1;min-width:0}
+.log-type{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.log-meta{font-size:12px;color:var(--text3);margin-top:2px}
+.log-date{font-size:11px;color:var(--text3);font-weight:600;flex-shrink:0}
+.empty{text-align:center;padding:40px 20px;color:var(--text3)}
+.empty-icon{font-size:40px;margin-bottom:12px}
+.empty-text{font-size:14px;line-height:1.6}
+
+/* MODAL */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.45);
+  z-index:500;display:none;align-items:flex-end;justify-content:center;
+}
+.overlay.open{display:flex}
+.modal{
+  background:var(--card);
+  border-radius:22px 22px 0 0;
+  padding:20px 20px calc(24px + var(--safe-bottom));
+  width:100%;max-width:480px;
+  max-height:90vh;overflow-y:auto;
+}
+.modal-handle{width:36px;height:4px;background:var(--gray-mid);border-radius:2px;margin:0 auto 18px}
+.modal-title{font-family:'Lora',serif;font-size:20px;font-weight:600;margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(--text3);margin-bottom:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px;
+  border:1.5px solid var(--gray-mid);border-radius:10px;
+  font-family:'Nunito',sans-serif;font-size:15px;
+  background:var(--bg);color:var(--text);outline:none;
+  -webkit-appearance:none;appearance:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal)}
+.field textarea{height:72px;resize:none}
+.modal-btns{display:flex;gap:10px;margin-top:20px}
+.btn-cancel{
+  flex:1;padding:14px;border:1.5px solid var(--gray-mid);border-radius:10px;
+  background:none;font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;
+  cursor:pointer;color:var(--text2);
+}
+.btn-save{
+  flex:2;padding:14px;border:none;border-radius:10px;
+  background:var(--teal);color:white;
+  font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;
+}
+
+/* MILESTONE */
+.milestone{
+  background:linear-gradient(135deg,var(--teal-dark),var(--teal));
+  border-radius:16px;padding:16px;margin-bottom:12px;color:white;
+}
+.milestone-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;opacity:0.75;margin-bottom:4px}
+.milestone-text{font-size:14px;line-height:1.5;opacity:0.95}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-row">
+      <div class="app-name">Beth's Fitness</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.75);font-weight:600" id="hdr-date"></div>
+    </div>
+    <div class="today-label" id="hdr-day"></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- TODAY PAGE -->
+  <div class="page active" id="page-today">
+    <div class="content">
+      <div class="sec-label">Today's workout</div>
+      <div id="today-card-wrap"></div>
+
+      <div class="sec-label">Daily foot care</div>
+      <div class="foot-section">
+        <div class="foot-heading">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2.5"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2"/></svg>
+          Post-workout protocol
+        </div>
+        <div class="foot-row">
+          <div class="chk" onclick="toggleChk(this)"></div>
+          <div class="foot-text">Calf stretches — standing wall stretch</div>
+          <div class="foot-reps">3 × 30s</div>
+        </div>
+        <div class="foot-row">
+          <div class="chk" onclick="toggleChk(this)"></div>
+          <div class="foot-text">Eccentric calf raises — step edge, slow lower</div>
+          <div class="foot-reps">3 × 15</div>
+        </div>
+        <div class="foot-row">
+          <div class="chk" onclick="toggleChk(this)"></div>
+          <div class="foot-text">Frozen bottle rolling — each foot</div>
+          <div class="foot-reps">2 min each</div>
+        </div>
+        <div class="foot-row">
+          <div class="chk" onclick="toggleChk(this)"></div>
+          <div class="foot-text">Towel toe curls</div>
+          <div class="foot-reps">2 × 20</div>
+        </div>
+      </div>
+
+      <div class="tip">
+        <div class="tip-label">Zone 2 reminder</div>
+        <div class="tip-text">For Peloton Zone 2 rides, ignore instructor cues and ride to your heart rate. Enable Peloton under iPhone Health → Heart Rate data sources for Apple Watch sync.</div>
+      </div>
+
+      <button class="btn-primary" onclick="openModal()">Log today's workout</button>
+      <div style="height:8px"></div>
+    </div>
+  </div>
+
+  <!-- PLAN PAGE -->
+  <div class="page" id="page-plan">
+    <div class="content">
+      <div class="sec-label">Your weekly plan</div>
+      <div id="plan-list"></div>
+
+      <div class="milestone">
+        <div class="milestone-label">Return to running milestone</div>
+        <div class="milestone-text">No morning pain + no post-sitting pain + 4+ symptom-free weeks → run/walk intervals begin</div>
+      </div>
+
+      <div class="tip">
+        <div class="tip-label">Chicago weeks</div>
+        <div class="tip-text">Reformer Pilates substitutes for dumbbell strength days — spring resistance is sufficient. Add mat core sessions on non-reformer days.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOG PAGE -->
+  <div class="page" id="page-log">
+    <div class="content">
+      <div class="sec-label">This week</div>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-lbl">Workouts</div>
+          <div class="stat-num" id="stat-count">0</div>
+          <div class="stat-sub">of 6 planned</div>
+          <div class="progress-track"><div class="progress-fill" id="prog-count" style="background:var(--teal);width:0%"></div></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-lbl">Cardio</div>
+          <div class="stat-num" id="stat-cardio">0</div>
+          <div class="stat-sub">of 75 min goal</div>
+          <div class="progress-track"><div class="progress-fill" id="prog-cardio" style="background:var(--coral);width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="sec-label">History</div>
+      <div id="log-list"></div>
+
+      <button class="btn-primary" onclick="openModal()">Log a workout</button>
+    </div>
+  </div>
+
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showPage('today',this)" id="nav-today">
+      <span class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </span>Today
+    </button>
+    <button class="nav-btn" onclick="showPage('plan',this)" id="nav-plan">
+      <span class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+      </span>Plan
+    </button>
+    <button class="nav-btn" onclick="showPage('log',this)" id="nav-log">
+      <span class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+      </span>Log
+    </button>
+  </div>
+</nav>
+
+<!-- LOG MODAL -->
+<div class="overlay" id="overlay" onclick="handleOverlay(event)">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Log workout</div>
+    <div class="modal-sub" id="modal-date-label"></div>
+    <div class="field">
+      <label>Type</label>
+      <select id="f-type">
+        <option value="peloton-hard">Peloton — hard ride (Zone 4/5)</option>
+        <option value="peloton-easy">Peloton — Zone 2 ride</option>
+        <option value="strength-legs">Dumbbell strength — legs</option>
+        <option value="strength-arms">Dumbbell strength — arms/upper</option>
+        <option value="reformer">Reformer Pilates</option>
+        <option value="mat">Mat Pilates + core</option>
+        <option value="rest">Rest day</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Duration (minutes)</label>
+      <input type="number" id="f-dur" placeholder="45" min="0" max="180">
+    </div>
+    <div class="field">
+      <label>Location</label>
+      <select id="f-loc">
+        <option>Wisconsin</option>
+        <option>Chicago</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Notes</label>
+      <textarea id="f-notes" placeholder="How did it feel? Any foot symptoms?"></textarea>
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveLog()">Save workout</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const PLAN=[
+  {day:'Monday',type:'hard',label:'Hard cardio',color:'#D85A30',bgColor:'#FAECE7',detail:'Peloton 30–35 min · Zone 4/5 intervals · push effort',loc:'Wisconsin',locColor:'#1D9E75'},
+  {day:'Tuesday',type:'strength',label:'Strength — legs',color:'#534AB7',bgColor:'#EEEDFE',detail:'Squats, deadlifts, lunges, calf raises · 30 min dumbbells',loc:'Wisconsin',locColor:'#1D9E75'},
+  {day:'Wednesday',type:'easy',label:'Easy cardio',color:'#1D9E75',bgColor:'#E1F5EE',detail:'Peloton 30 min · Zone 2 · ride to heart rate, ignore cues',loc:'Wisconsin',locColor:'#1D9E75'},
+  {day:'Thursday',type:'pilates',label:'Mat Pilates + core',color:'#185FA5',bgColor:'#E6F1FB',detail:'40 min · side-lying series, bridging, clamshells, relevés, inner thigh',loc:'Wisconsin or Chicago',locColor:'#888780'},
+  {day:'Friday',type:'hard',label:'Hard cardio or Reformer',color:'#D85A30',bgColor:'#FAECE7',detail:'Peloton 30–35 min Zone 4/5  OR  Reformer Pilates (Chicago)',loc:'Wisconsin or Chicago',locColor:'#888780'},
+  {day:'Saturday',type:'strength',label:'Strength — arms/upper',color:'#534AB7',bgColor:'#EEEDFE',detail:'Rows, presses, biceps, triceps, shoulder work · 30 min',loc:'Wisconsin',locColor:'#1D9E75'},
+  {day:'Sunday',type:'rest',label:'Rest day',color:'#888780',bgColor:'#F4F3F0',detail:'Dog walk only · let the body fully recover',loc:'Anywhere',locColor:'#888780'},
+];
+
+const TYPE_COLORS={
+  'peloton-hard':'#D85A30','peloton-easy':'#1D9E75',
+  'strength-legs':'#534AB7','strength-arms':'#534AB7',
+  'reformer':'#185FA5','mat':'#185FA5','rest':'#888780'
+};
+
+function fmt(d){return `${MONTHS[d.getMonth()]} ${d.getDate()}`}
+
+function init(){
+  const now=new Date();
+  const dow=now.getDay();
+  document.getElementById('hdr-date').textContent=fmt(now);
+  document.getElementById('hdr-day').textContent=DAYS[dow];
+  document.getElementById('modal-date-label').textContent=DAYS[dow]+', '+fmt(now);
+
+  // Today card
+  const today=PLAN.find(p=>DAYS.indexOf(p.day)===dow)||PLAN[6];
+  document.getElementById('today-card-wrap').innerHTML=`
+    <div class="today-card">
+      <div class="today-card-top">
+        <div>
+          <div class="today-type">${today.label}</div>
+        </div>
+        <div class="today-badge" style="background:${today.bgColor};color:${today.color}">${today.type.toUpperCase()}</div>
+      </div>
+      <div class="today-detail">${today.detail}</div>
+      <div class="today-footer">
+        <div class="loc-dot" style="background:${today.locColor}"></div>
+        ${today.loc}
+      </div>
+    </div>`;
+
+  // Plan list
+  document.getElementById('plan-list').innerHTML=PLAN.map(p=>{
+    const isToday=p.day===DAYS[dow];
+    return `<div class="plan-card" style="${isToday?'border:1.5px solid '+p.color:''}">
+      <div class="plan-accent" style="background:${p.color}"></div>
+      <div class="plan-body">
+        <div class="plan-row">
+          <div class="plan-day">${p.day}${isToday?'<span class="today-marker">today</span>':''}</div>
+          <div class="plan-badge" style="background:${p.bgColor};color:${p.color}">${p.label}</div>
+        </div>
+        <div class="plan-detail">${p.detail}</div>
+        <div class="plan-loc"><div class="loc-dot" style="background:${p.locColor};width:6px;height:6px;border-radius:50%;flex-shrink:0"></div>${p.loc}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  updateLog();
+}
+
+function showPage(name,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  btn.classList.add('active');
+  document.querySelector('.main').scrollTop=0;
+}
+
+function toggleChk(el){el.classList.toggle('done')}
+
+function openModal(){document.getElementById('overlay').classList.add('open')}
+function closeModal(){document.getElementById('overlay').classList.remove('open')}
+function handleOverlay(e){if(e.target===document.getElementById('overlay'))closeModal()}
+
+let logs=[];
+try{logs=JSON.parse(localStorage.getItem('bf_logs')||'[]')}catch(e){}
+
+function saveLog(){
+  const type=document.getElementById('f-type').value;
+  const dur=parseInt(document.getElementById('f-dur').value)||0;
+  const loc=document.getElementById('f-loc').value;
+  const notes=document.getElementById('f-notes').value.trim();
+  const now=new Date();
+  logs.unshift({type,dur,loc,notes,ts:now.toISOString(),label:document.getElementById('f-type').options[document.getElementById('f-type').selectedIndex].text});
+  try{localStorage.setItem('bf_logs',JSON.stringify(logs.slice(0,200)))}catch(e){}
+  document.getElementById('f-dur').value='';
+  document.getElementById('f-notes').value='';
+  closeModal();
+  updateLog();
+}
+
+function updateLog(){
+  const now=new Date();
+  const weekStart=new Date(now);weekStart.setDate(now.getDate()-now.getDay());weekStart.setHours(0,0,0,0);
+  const thisWeek=logs.filter(l=>new Date(l.ts)>=weekStart);
+  const workouts=thisWeek.filter(l=>l.type!=='rest').length;
+  const cardio=thisWeek.filter(l=>l.type.startsWith('peloton')).reduce((s,l)=>s+l.dur,0);
+
+  document.getElementById('stat-count').textContent=workouts;
+  document.getElementById('stat-cardio').textContent=cardio;
+  document.getElementById('prog-count').style.width=Math.min(100,Math.round(workouts/6*100))+'%';
+  document.getElementById('prog-cardio').style.width=Math.min(100,Math.round(cardio/75*100))+'%';
+
+  const list=document.getElementById('log-list');
+  if(!logs.length){
+    list.innerHTML=`<div class="empty"><div class="empty-icon">🏋️</div><div class="empty-text">No workouts logged yet.<br>Tap the button above to add your first one!</div></div>`;
+    return;
+  }
+  list.innerHTML=`<div class="log-card">${logs.slice(0,30).map(l=>{
+    const d=new Date(l.ts);
+    const col=TYPE_COLORS[l.type]||'#888780';
+    return `<div class="log-entry">
+      <div class="log-dot" style="background:${col}"></div>
+      <div class="log-info">
+        <div class="log-type">${l.label}</div>
+        <div class="log-meta">${l.dur?l.dur+' min · ':''}${l.loc}${l.notes?' · '+l.notes.slice(0,40):''}</div>
+      </div>
+      <div class="log-date">${MONTHS[d.getMonth()]} ${d.getDate()}</div>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+init();
+</script>
+</body>
+</html>
