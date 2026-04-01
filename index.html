@@ -25,6 +25,7 @@
 }
 html,body{height:100%;overflow:hidden}
 body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);display:flex;flex-direction:column}
+
 .header{background:var(--teal-dark);padding:calc(12px + var(--safe-top)) 20px 14px;flex-shrink:0;position:relative;overflow:hidden}
 .header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(93,202,165,0.3) 0%,transparent 60%);pointer-events:none}
 .header-inner{max-width:480px;margin:0 auto;position:relative}
@@ -34,25 +35,33 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .loc-btn{border:none;background:none;color:rgba(255,255,255,0.7);font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:5px 12px;border-radius:16px;cursor:pointer;transition:all 0.2s}
 .loc-btn.active{background:white;color:var(--teal-dark)}
 .header-sub{font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px}
+
 .main{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
 .content{max-width:480px;margin:0 auto;padding:16px 16px 100px}
+
 .nav{background:var(--card);border-top:1px solid var(--border);padding:8px 0 calc(8px + var(--safe-bottom));flex-shrink:0}
 .nav-inner{max-width:480px;margin:0 auto;display:flex}
 .nav-btn{flex:1;border:none;background:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:var(--text3);display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 4px;transition:color 0.15s;letter-spacing:0.04em;text-transform:uppercase}
 .nav-btn.active{color:var(--teal-dark)}
 .nav-btn.active svg{stroke:var(--teal-dark) !important}
 .nav-btn svg{stroke:var(--text3);transition:stroke 0.15s}
+
 .page{display:none}.page.active{display:block}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin:20px 0 8px}
+
+/* TODAY CARD */
 .today-card{background:var(--card);border-radius:16px;border:1px solid var(--border);overflow:hidden;margin-bottom:12px}
 .today-card-top{padding:16px;display:flex;justify-content:space-between;align-items:flex-start}
 .today-type{font-family:'Lora',serif;font-size:20px;font-weight:600;color:var(--text);line-height:1.2}
 .today-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;flex-shrink:0;margin-left:10px;margin-top:2px;text-transform:uppercase;letter-spacing:0.05em}
 .today-detail{font-size:14px;color:var(--text2);line-height:1.6;padding:0 16px 12px}
+.today-notes{font-size:13px;color:var(--amber);font-style:italic;padding:0 16px 12px;line-height:1.5}
 .today-footer{background:var(--gray-light);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
 .today-loc{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3);font-weight:600}
 .loc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .edit-btn{font-size:12px;color:var(--teal);font-weight:700;border:none;background:none;cursor:pointer;padding:0}
+
+/* FOOT CARE */
 .foot-section{background:var(--teal-light);border:1px solid rgba(29,158,117,0.2);border-radius:16px;padding:16px;margin-bottom:12px}
 .foot-heading{font-size:13px;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .foot-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(29,158,117,0.12)}
@@ -62,11 +71,15 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .chk.done::after{content:'';display:block;width:5px;height:10px;border:2.5px solid white;border-top:none;border-left:none;transform:rotate(45deg) translateY(-1px)}
 .foot-text{font-size:14px;color:var(--teal-dark);flex:1;line-height:1.4}
 .foot-reps{font-size:12px;color:var(--teal);font-weight:700;flex-shrink:0}
+
 .tip{background:var(--amber-light);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:12px}
 .tip-label{font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px}
 .tip-text{font-size:13px;color:var(--text);line-height:1.6}
+
 .btn-primary{width:100%;padding:15px;border:none;border-radius:12px;background:var(--teal);color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background 0.15s,transform 0.1s;margin-bottom:8px}
 .btn-primary:active{background:var(--teal-dark);transform:scale(0.98)}
+
+/* PLAN CARDS */
 .plan-card{background:var(--card);border-radius:14px;border:1px solid var(--border);margin-bottom:8px;overflow:hidden;display:flex}
 .plan-accent{width:5px;flex-shrink:0}
 .plan-body{padding:12px 14px;flex:1;min-width:0}
@@ -74,9 +87,13 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .plan-day{font-size:14px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .plan-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:0.05em;flex-shrink:0}
 .plan-detail{font-size:13px;color:var(--text2);line-height:1.5}
-.plan-loc{font-size:11px;color:var(--text3);margin-top:5px;font-weight:600;display:flex;align-items:center;gap:4px}
-.plan-edit{border:none;background:none;color:var(--teal);font-size:12px;font-weight:700;cursor:pointer;padding:6px 0 0;display:block}
+.plan-sticky{font-size:12px;color:var(--amber);font-style:italic;margin-top:6px;line-height:1.5;padding:8px 10px;background:var(--amber-light);border-radius:8px}
+.plan-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.plan-loc{font-size:11px;color:var(--text3);font-weight:600;display:flex;align-items:center;gap:4px}
+.plan-edit{border:none;background:none;color:var(--teal);font-size:12px;font-weight:700;cursor:pointer;padding:0}
 .today-marker{font-size:10px;font-weight:700;color:white;background:var(--coral);padding:2px 7px;border-radius:10px}
+
+/* LOG PAGE */
 .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .stat-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
 .stat-lbl{font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
@@ -95,6 +112,8 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .empty{text-align:center;padding:40px 20px;color:var(--text3)}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty-text{font-size:14px;line-height:1.6}
+
+/* MODALS */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:500;display:none;align-items:flex-end;justify-content:center}
 .overlay.open{display:flex}
 .modal{background:var(--card);border-radius:22px 22px 0 0;padding:20px 20px calc(24px + var(--safe-bottom));width:100%;max-width:480px;max-height:90vh;overflow-y:auto}
@@ -105,10 +124,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 .field label{display:block;font-size:13px;font-weight:700;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
 .field input,.field select,.field textarea{width:100%;padding:12px;border:1.5px solid var(--gray-mid);border-radius:10px;font-family:'Nunito',sans-serif;font-size:15px;background:var(--bg);color:var(--text);outline:none;-webkit-appearance:none;appearance:none}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal)}
-.field textarea{height:80px;resize:none}
+.field textarea{height:90px;resize:none}
 .modal-btns{display:flex;gap:10px;margin-top:20px}
 .btn-cancel{flex:1;padding:14px;border:1.5px solid var(--gray-mid);border-radius:10px;background:none;font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;cursor:pointer;color:var(--text2)}
 .btn-save{flex:2;padding:14px;border:none;border-radius:10px;background:var(--teal);color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:700;cursor:pointer}
+
 .milestone{background:linear-gradient(135deg,var(--teal-dark),var(--teal));border-radius:16px;padding:16px;margin-bottom:12px;color:white}
 .milestone-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;opacity:0.75;margin-bottom:4px}
 .milestone-text{font-size:14px;line-height:1.5;opacity:0.95}
@@ -130,23 +150,28 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
 </div>
 
 <div class="main">
+
+  <!-- TODAY -->
   <div class="page active" id="page-today">
     <div class="content">
       <div class="sec-label">Today's workout</div>
       <div id="today-card-wrap"></div>
+
       <div class="sec-label">Daily foot care</div>
       <div class="foot-section">
-        <div class="foot-heading">&#128197; Post-workout protocol</div>
+        <div class="foot-heading">&#128344; Post-workout protocol</div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Calf stretches — standing wall stretch</div><div class="foot-reps">3 × 30s</div></div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Eccentric calf raises — step edge, slow lower</div><div class="foot-reps">3 × 15</div></div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Frozen bottle rolling — each foot</div><div class="foot-reps">2 min each</div></div>
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Towel toe curls</div><div class="foot-reps">2 × 20</div></div>
       </div>
+
       <div class="tip" id="loc-tip"></div>
       <button class="btn-primary" onclick="openLogModal()">Log today's workout</button>
     </div>
   </div>
 
+  <!-- PLAN -->
   <div class="page" id="page-plan">
     <div class="content">
       <div class="sec-label">Weekly plan</div>
@@ -158,6 +183,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
     </div>
   </div>
 
+  <!-- LOG -->
   <div class="page" id="page-log">
     <div class="content">
       <div class="sec-label">This week</div>
@@ -180,6 +206,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
       <button class="btn-primary" onclick="openLogModal()">Log a workout</button>
     </div>
   </div>
+
 </div>
 
 <nav class="nav">
@@ -228,15 +255,24 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
   </div>
 </div>
 
-<!-- EDIT MODAL -->
+<!-- EDIT WORKOUT MODAL -->
 <div class="overlay" id="ov-edit" onclick="if(event.target===this)closeEditModal()">
   <div class="modal">
     <div class="modal-handle"></div>
     <div class="modal-title" id="edit-title">Edit workout</div>
-    <div class="modal-sub">Edit the workout name and description for each location separately.</div>
-    <div class="field"><label>Workout name</label><input type="text" id="e-label" placeholder="e.g. Hard cardio"></div>
-    <div class="field"><label>Wisconsin version</label><textarea id="e-wi" placeholder="What you do when in Wisconsin..."></textarea></div>
-    <div class="field"><label>Chicago version</label><textarea id="e-chi" placeholder="What you do when in Chicago..."></textarea></div>
+    <div class="modal-sub">Changes save to your plan and stay until you edit again.</div>
+    <div class="field">
+      <label>Workout name</label>
+      <input type="text" id="e-label" placeholder="e.g. Hard cardio">
+    </div>
+    <div class="field">
+      <label>Workout description</label>
+      <textarea id="e-detail" placeholder="What you'll do — exercises, duration, notes..."></textarea>
+    </div>
+    <div class="field">
+      <label>My notes for this day</label>
+      <textarea id="e-notes" placeholder="Personal notes — how it went, what to remember, foot symptoms..."></textarea>
+    </div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeEditModal()">Cancel</button>
       <button class="btn-save" onclick="saveEdit()">Save changes</button>
@@ -250,33 +286,20 @@ const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov',
 const TYPE_COLORS={'peloton-hard':'#D85A30','peloton-easy':'#1D9E75','strength-legs':'#534AB7','strength-arms':'#534AB7','reformer':'#185FA5','mat':'#185FA5','rest':'#888780'};
 
 const DEFAULT_PLAN=[
-  {day:'Monday',type:'hard',label:'Hard cardio',color:'#D85A30',bgColor:'#FAECE7',
-    wi:'Peloton 30–35 min · Zone 4/5 intervals · push hard effort',
-    chi:'Peloton 30–35 min if available · or brisk walk/run intervals outside'},
-  {day:'Tuesday',type:'strength',label:'Strength — legs',color:'#534AB7',bgColor:'#EEEDFE',
-    wi:'Squats, deadlifts, lunges, calf raises · dumbbells · 30 min',
-    chi:'Reformer Pilates class — spring resistance substitutes for dumbbells'},
-  {day:'Wednesday',type:'easy',label:'Easy cardio',color:'#1D9E75',bgColor:'#E1F5EE',
-    wi:'Peloton 30 min · Zone 2 · ride to heart rate, ignore instructor cues',
-    chi:'Brisk walk 30 min · keep heart rate conversational · Zone 2 effort'},
-  {day:'Thursday',type:'pilates',label:'Mat Pilates + core',color:'#185FA5',bgColor:'#E6F1FB',
-    wi:'40 min mat Pilates · side-lying series, bridging, clamshells, relevés, inner thigh lifts',
-    chi:'Reformer Pilates class · add 10 min core mat work after if class is short'},
-  {day:'Friday',type:'hard',label:'Hard cardio',color:'#D85A30',bgColor:'#FAECE7',
-    wi:'Peloton 30–35 min · Zone 4/5 · sustained push effort',
-    chi:'Reformer Pilates class (vigorous) · or Peloton if available in Chicago'},
-  {day:'Saturday',type:'strength',label:'Strength — arms/upper',color:'#534AB7',bgColor:'#EEEDFE',
-    wi:'Rows, presses, biceps, triceps, shoulder work · dumbbells · 30 min',
-    chi:'Mat Pilates with added arm work · or reformer if slot available'},
-  {day:'Sunday',type:'rest',label:'Rest day',color:'#888780',bgColor:'#F4F3F0',
-    wi:'Dog walk only · full recovery · no structured workout',
-    chi:'Dog walk only · full recovery · no structured workout'},
+  {day:'Monday',   type:'hard',     label:'Hard cardio',          color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30–35 min · Zone 4/5 intervals · push hard effort', notes:''},
+  {day:'Tuesday',  type:'strength', label:'Strength — legs',      color:'#534AB7',bgColor:'#EEEDFE', detail:'Squats, deadlifts, lunges, calf raises · dumbbells · 30 min', notes:''},
+  {day:'Wednesday',type:'easy',     label:'Easy cardio',          color:'#1D9E75',bgColor:'#E1F5EE', detail:'Peloton 30 min · Zone 2 · ride to heart rate, ignore instructor cues', notes:''},
+  {day:'Thursday', type:'pilates',  label:'Mat Pilates + core',   color:'#185FA5',bgColor:'#E6F1FB', detail:'40 min mat Pilates · side-lying series, bridging, clamshells, relevés, inner thigh lifts', notes:''},
+  {day:'Friday',   type:'hard',     label:'Hard cardio',          color:'#D85A30',bgColor:'#FAECE7', detail:'Peloton 30–35 min · Zone 4/5 · sustained push effort', notes:''},
+  {day:'Saturday', type:'strength', label:'Strength — arms/upper',color:'#534AB7',bgColor:'#EEEDFE', detail:'Rows, presses, biceps, triceps, shoulder work · dumbbells · 30 min', notes:''},
+  {day:'Sunday',   type:'rest',     label:'Rest day',             color:'#888780',bgColor:'#F4F3F0', detail:'Dog walk only · full recovery · no structured workout', notes:''},
 ];
 
-let loc='wi';
-let editIdx=null;
-let plan,logs;
+let loc='wi', editIdx=null, plan, logs;
+
 try{plan=JSON.parse(localStorage.getItem('bf_plan')||'null')||JSON.parse(JSON.stringify(DEFAULT_PLAN))}catch(e){plan=JSON.parse(JSON.stringify(DEFAULT_PLAN))}
+// Make sure all plan entries have a notes field (for upgrades from older version)
+plan.forEach(p=>{if(p.notes===undefined)p.notes=''});
 try{logs=JSON.parse(localStorage.getItem('bf_logs')||'[]')}catch(e){logs=[]}
 try{loc=localStorage.getItem('bf_loc')||'wi'}catch(e){}
 
@@ -291,40 +314,40 @@ function setLocation(l){
 }
 
 function renderAll(){
-  const now=new Date(),dow=now.getDay();
+  const now=new Date(), dow=now.getDay();
   const dateStr=DAYS[dow]+', '+MONTHS[now.getMonth()]+' '+now.getDate();
-  document.getElementById('hdr-sub').textContent=dateStr+(loc==='wi'?' · Wisconsin':' · Chicago');
+  const locLabel=loc==='wi'?'Wisconsin':'Chicago';
+  const locColor=loc==='wi'?'#1D9E75':'#185FA5';
+
+  document.getElementById('hdr-sub').textContent=dateStr+' · '+locLabel;
   document.getElementById('log-modal-sub').textContent=dateStr;
   document.getElementById('f-loc').value=loc==='wi'?'Wisconsin':'Chicago';
 
+  // Today card
   const today=plan.find(p=>DAYS.indexOf(p.day)===dow)||plan[6];
-  const detail=loc==='wi'?today.wi:today.chi;
-  const locColor=loc==='wi'?'#1D9E75':'#185FA5';
-  const locLabel=loc==='wi'?'Wisconsin':'Chicago';
   const todayIdx=plan.indexOf(today);
-
   document.getElementById('today-card-wrap').innerHTML=`
     <div class="today-card">
       <div class="today-card-top">
         <div class="today-type">${today.label}</div>
         <div class="today-badge" style="background:${today.bgColor};color:${today.color}">${today.type}</div>
       </div>
-      <div class="today-detail">${detail}</div>
+      <div class="today-detail">${today.detail}</div>
+      ${today.notes?`<div class="today-notes">&#128203; ${today.notes}</div>`:''}
       <div class="today-footer">
         <div class="today-loc"><div class="loc-dot" style="background:${locColor}"></div>${locLabel}</div>
-        <button class="edit-btn" onclick="openEditModal(${todayIdx})">Edit ✏️</button>
+        <button class="edit-btn" onclick="openEditModal(${todayIdx})">Edit &#9999;&#65039;</button>
       </div>
     </div>`;
 
+  // Tip
   document.getElementById('loc-tip').innerHTML=loc==='wi'
-    ?`<div class="tip-label">Zone 2 reminder</div><div class="tip-text">For Zone 2 rides, ignore instructor cues and ride to your heart rate. Enable Peloton under iPhone Health → Heart Rate data sources for Apple Watch sync. Best instructors: Matt Wilpers, Christine D'Ercole.</div>`
-    :`<div class="tip-label">Chicago mode active</div><div class="tip-text">Reformer Pilates substitutes for dumbbell strength days — spring resistance counts. Add short mat core work on non-reformer days to keep core work consistent.</div>`;
+    ?`<div class="tip-label">Zone 2 reminder</div><div class="tip-text">For Zone 2 rides, ignore instructor cues and ride to your heart rate. Enable Peloton under iPhone Health → Heart Rate sources for Apple Watch sync. Best instructors: Matt Wilpers, Christine D'Ercole.</div>`
+    :`<div class="tip-label">Chicago mode</div><div class="tip-text">Reformer Pilates substitutes for dumbbell strength days — spring resistance counts. Add short mat core work on non-reformer days.</div>`;
 
+  // Plan list
   document.getElementById('plan-list').innerHTML=plan.map((p,i)=>{
     const isToday=DAYS.indexOf(p.day)===dow;
-    const d=loc==='wi'?p.wi:p.chi;
-    const lc=loc==='wi'?'#1D9E75':'#185FA5';
-    const ll=loc==='wi'?'Wisconsin':'Chicago';
     return `<div class="plan-card" style="${isToday?'border:1.5px solid '+p.color:''}">
       <div class="plan-accent" style="background:${p.color}"></div>
       <div class="plan-body">
@@ -332,9 +355,12 @@ function renderAll(){
           <div class="plan-day">${p.day}${isToday?'<span class="today-marker">today</span>':''}</div>
           <div class="plan-badge" style="background:${p.bgColor};color:${p.color}">${p.label}</div>
         </div>
-        <div class="plan-detail">${d}</div>
-        <div class="plan-loc"><div class="loc-dot" style="background:${lc};width:6px;height:6px;border-radius:50%;flex-shrink:0"></div>${ll}</div>
-        <button class="plan-edit" onclick="openEditModal(${i})">Edit this day ✏️</button>
+        <div class="plan-detail">${p.detail}</div>
+        ${p.notes?`<div class="plan-sticky">&#128203; ${p.notes}</div>`:''}
+        <div class="plan-footer">
+          <div class="plan-loc"><div class="loc-dot" style="background:${locColor};width:6px;height:6px;border-radius:50%;flex-shrink:0"></div>${locLabel}</div>
+          <button class="plan-edit" onclick="openEditModal(${i})">Edit &#9999;&#65039;</button>
+        </div>
       </div>
     </div>`;
   }).join('');
@@ -358,7 +384,7 @@ function closeLogModal(){document.getElementById('ov-log').classList.remove('ope
 function saveLog(){
   const sel=document.getElementById('f-type');
   logs.unshift({
-    type:sel.value,label:sel.options[sel.selectedIndex].text,
+    type:sel.value, label:sel.options[sel.selectedIndex].text,
     dur:parseInt(document.getElementById('f-dur').value)||0,
     loc:document.getElementById('f-loc').value,
     notes:document.getElementById('f-notes').value.trim(),
@@ -367,7 +393,7 @@ function saveLog(){
   try{localStorage.setItem('bf_logs',JSON.stringify(logs.slice(0,200)))}catch(e){}
   document.getElementById('f-dur').value='';
   document.getElementById('f-notes').value='';
-  closeLogModal();updateLog();
+  closeLogModal(); updateLog();
 }
 
 function openEditModal(i){
@@ -375,25 +401,25 @@ function openEditModal(i){
   const p=plan[i];
   document.getElementById('edit-title').textContent='Edit — '+p.day;
   document.getElementById('e-label').value=p.label;
-  document.getElementById('e-wi').value=p.wi;
-  document.getElementById('e-chi').value=p.chi;
+  document.getElementById('e-detail').value=p.detail;
+  document.getElementById('e-notes').value=p.notes||'';
   document.getElementById('ov-edit').classList.add('open');
 }
-function closeEditModal(){document.getElementById('ov-edit').classList.remove('open');editIdx=null}
+function closeEditModal(){document.getElementById('ov-edit').classList.remove('open'); editIdx=null}
 function saveEdit(){
   if(editIdx===null)return;
   const lbl=document.getElementById('e-label').value.trim();
-  const wi=document.getElementById('e-wi').value.trim();
-  const chi=document.getElementById('e-chi').value.trim();
+  const det=document.getElementById('e-detail').value.trim();
+  const nts=document.getElementById('e-notes').value.trim();
   if(lbl)plan[editIdx].label=lbl;
-  if(wi)plan[editIdx].wi=wi;
-  if(chi)plan[editIdx].chi=chi;
-  savePlan();closeEditModal();renderAll();
+  if(det)plan[editIdx].detail=det;
+  plan[editIdx].notes=nts;
+  savePlan(); closeEditModal(); renderAll();
 }
 
 function updateLog(){
   const now=new Date();
-  const ws=new Date(now);ws.setDate(now.getDate()-now.getDay());ws.setHours(0,0,0,0);
+  const ws=new Date(now); ws.setDate(now.getDate()-now.getDay()); ws.setHours(0,0,0,0);
   const tw=logs.filter(l=>new Date(l.ts)>=ws);
   const wk=tw.filter(l=>l.type!=='rest').length;
   const cd=tw.filter(l=>l.type.startsWith('peloton')).reduce((s,l)=>s+l.dur,0);
