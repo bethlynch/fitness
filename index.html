@@ -152,7 +152,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
         <div class="foot-row"><div class="chk" onclick="toggleChk(this)"></div><div class="foot-text">Towel toe curls</div><div class="foot-reps">2 × 20</div></div>
       </div>
       <div class="tip" id="loc-tip"></div>
-      <button class="btn-primary" onclick="openLogModal()">Log today's workout</button>
+      <button class="btn-primary" id="log-today-btn" onclick="openLogModal()">Log today's workout</button>
     </div>
   </div>
 
@@ -229,6 +229,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
     <div class="modal-handle"></div>
     <div class="modal-title">Log workout</div>
     <div class="modal-sub" id="log-modal-sub"></div>
+    <div class="field"><label>Date</label><input type="date" id="f-date"></div>
     <div class="field"><label>Type</label>
       <select id="f-type">
         <option value="peloton-hard">Peloton — vigorous (Zone 4/5)</option>
@@ -423,18 +424,26 @@ function showPage(name,btn){
 
 function toggleChk(el){el.classList.toggle('done')}
 
-function openLogModal(){document.getElementById('ov-log').classList.add('open')}
+function openLogModal(){
+  const now=new Date();
+  const y=now.getFullYear(), m=String(now.getMonth()+1).padStart(2,'0'), d=String(now.getDate()).padStart(2,'0');
+  document.getElementById('f-date').value=y+'-'+m+'-'+d;
+  document.getElementById('ov-log').classList.add('open');
+}
 function closeLogModal(){document.getElementById('ov-log').classList.remove('open')}
 
 function saveLog(){
   const sel=document.getElementById('f-type');
+  const dateVal=document.getElementById('f-date').value;
+  const logTs=dateVal ? new Date(dateVal+'T12:00:00').toISOString() : new Date().toISOString();
   logs.unshift({
     type:sel.value, label:sel.options[sel.selectedIndex].text,
     dur:parseInt(document.getElementById('f-dur').value)||0,
     loc:document.getElementById('f-loc').value,
     notes:document.getElementById('f-notes').value.trim(),
-    ts:new Date().toISOString()
+    ts:logTs
   });
+  logs.sort((a,b)=>new Date(b.ts)-new Date(a.ts));
   try{localStorage.setItem('bf_logs',JSON.stringify(logs.slice(0,200)))}catch(e){}
   document.getElementById('f-dur').value='';
   document.getElementById('f-notes').value='';
@@ -467,6 +476,14 @@ function saveEdit(){
 }
 
 function updateLog(){
+  // Update today button state
+  const todayStart=new Date(); todayStart.setHours(0,0,0,0);
+  const loggedToday=logs.some(l=>new Date(l.ts)>=todayStart);
+  const btn=document.getElementById('log-today-btn');
+  if(btn){
+    btn.textContent=loggedToday?'✓ Logged · Log again':"Log today's workout";
+    btn.style.background=loggedToday?'var(--teal-dark)':'var(--teal)';
+  }
   const now=new Date();
   const ws=new Date(now); ws.setDate(now.getDate()-now.getDay()); ws.setHours(0,0,0,0);
   const tw=logs.filter(l=>new Date(l.ts)>=ws);
