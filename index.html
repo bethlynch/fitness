@@ -229,7 +229,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);disp
     <div class="modal-handle"></div>
     <div class="modal-title">Log workout</div>
     <div class="modal-sub" id="log-modal-sub"></div>
-    <div class="field"><label>Date</label><input type="date" id="f-date"></div>
+    <div class="field"><label>Date</label><select id="f-date"></select></div>
     <div class="field"><label>Type</label>
       <select id="f-type">
         <option value="peloton-hard">Peloton — vigorous (Zone 4/5)</option>
@@ -425,17 +425,28 @@ function showPage(name,btn){
 function toggleChk(el){el.classList.toggle('done')}
 
 function openLogModal(){
+  const sel=document.getElementById('f-date');
+  sel.innerHTML='';
   const now=new Date();
-  const y=now.getFullYear(), m=String(now.getMonth()+1).padStart(2,'0'), d=String(now.getDate()).padStart(2,'0');
-  document.getElementById('f-date').value=y+'-'+m+'-'+d;
+  for(let i=0;i<7;i++){
+    const d=new Date(now); d.setDate(now.getDate()-i);
+    const dayName=DAYS[d.getDay()];
+    const monthDay=MONTHS[d.getMonth()]+' '+d.getDate();
+    const label=i===0?'Today — '+dayName+', '+monthDay:i===1?'Yesterday — '+dayName+', '+monthDay:dayName+', '+monthDay;
+    const opt=document.createElement('option');
+    opt.value=i; opt.textContent=label;
+    sel.appendChild(opt);
+  }
+  sel.value='0';
   document.getElementById('ov-log').classList.add('open');
 }
 function closeLogModal(){document.getElementById('ov-log').classList.remove('open')}
 
 function saveLog(){
   const sel=document.getElementById('f-type');
-  const dateVal=document.getElementById('f-date').value;
-  const logTs=dateVal ? new Date(dateVal+'T12:00:00').toISOString() : new Date().toISOString();
+  const daysAgo=parseInt(document.getElementById('f-date').value)||0;
+  const logDate=new Date(); logDate.setDate(logDate.getDate()-daysAgo); logDate.setHours(12,0,0,0);
+  const logTs=logDate.toISOString();
   logs.unshift({
     type:sel.value, label:sel.options[sel.selectedIndex].text,
     dur:parseInt(document.getElementById('f-dur').value)||0,
